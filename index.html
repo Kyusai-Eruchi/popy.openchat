@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>アナウンス照合ツール</title>
+  <link rel="icon" type="jpeg" href="img/logo.jpg">
+  <link rel="stylesheet" href="./stylesheet.css">
+</head>
+<body>
+
+<div id="main-content">
+  <h2 class="center-title">アナウンス照合ツール</h2>
+
+  <!-- 🔧 色設定（折りたたみ） -->
+  <details class="color-settings">
+    <summary>🎨 色設定（クリックで開閉）</summary>
+
+    <div class="color-inner">
+      <label>アナウンス照合ツールの文字色：</label>
+      <input type="color" id="textColor" value="#ffffff">
+
+      <label>不一致文字色：</label>
+      <input type="color" id="diffColor" value="#000000">
+
+      <label>不一致背景色：</label>
+      <input type="color" id="diffBg" value="#ffff00">
+
+      <hr>
+
+      <label>照合ボタンの色：</label>
+      <input type="color" id="btnColor" value="#0000ff">
+
+      <label>ボタン内の文字色：</label>
+      <input type="color" id="btnTextColor" value="#ffffff">
+    </div>
+  </details>
+
+  <!-- 入力エリア（左右2カラム） -->
+  <div class="input-grid">
+    <div>
+      <label>現在のアナウンス</label>
+      <textarea id="announce" disabled placeholder="P.P.ぽぴぃは管理人を@ぽぴぃ代理よしきゅー。(23回成功済)に渡したのか？"></textarea>
+    </div>
+
+    <div>
+      <label>照合したいアナウンス</label>
+      <textarea id="message" placeholder="照合したいアナウンスを入力してください"></textarea>
+    </div>
+  </div>
+
+  <!-- ボタン -->
+  <button id="my-btn" class="compare-btn">照合</button>
+
+  <!-- 結果表示 -->
+  <div class="result-box">
+    <h3>🔍 照合結果</h3>
+    <p id="result" style="display:none;">未照合</p>
+    <div id="diff"></div>
+  </div>
+
+  <!-- 注意書き -->
+  <div class="warning-box">
+    ⚠ 現在のアナウンスは管理者側が操作するため、利用者側では変更できません。
+  </div>
+
+  <!-- 管理者ログイン（折りたたみ） -->
+  <details class="admin-box">
+    <summary>🔐 管理者ログイン</summary>
+
+    <div class="admin-content">
+      <p>パスワードを入力してください</p>
+      <input type="password" id="admin-pass" placeholder="パスワード">
+      <button id="login-btn">ログイン</button>
+      <p id="login-result"></p>
+    </div>
+  </details>
+
+  <h5 class="copy">© 2026 かなたん推し【💫🎀所属 / 開発局長】 All Rights Reserved.</h5>
+
+</div>
+
+<script src="./script.js?v=3"></script>
+</body>
+</html>
