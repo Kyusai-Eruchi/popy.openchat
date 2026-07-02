@@ -1,0 +1,163 @@
+:root {
+  --text-color: #ffffff;   /* 全体文字色 */
+  --diff-text: #000000;    /* 不一致文字の色 */
+  --diff-bg: #ffff00;      /* 不一致文字の背景 */
+
+  --btn-bg: #0000ff;       /* 照合ボタン背景色 */
+  --btn-text: #ffffff;     /* ボタン内文字色 */
+}
+
+body {
+  font-family: system-ui;
+  background: #000;
+  color: var(--text-color);
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+}
+
+.center-title {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  color: #00ff00;
+}
+
+/* ============================
+   🎨 色設定（折りたたみ）
+============================ */
+.color-settings {
+  max-width: 600px;
+  margin: 20px auto;
+  text-align: left;
+  border: 1px solid #555;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.color-settings summary {
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px;
+  background: #222;
+  border-bottom: 1px solid #555;
+  outline: none;
+}
+
+.color-settings summary::-webkit-details-marker {
+  color: #fff;
+}
+
+.color-inner {
+  padding: 15px;
+  background: #111;
+}
+
+.color-inner label {
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* ============================
+   2カラム入力ボックス
+============================ */
+.input-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto 20px;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  text-align: left;
+  margin-bottom: 5px;
+  font-size: 12px;
+}
+
+textarea {
+  width: 100%;
+  height: 140px;
+  resize: vertical;
+  padding: 10px;
+  font-size: 16px;
+}
+
+/* ============================
+   ボタン
+============================ */
+.compare-btn {
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  padding: 12px 25px;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  margin: 20px;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+.compare-btn:hover {
+  filter: brightness(0.8);
+}
+
+/* ============================
+   結果表示
+============================ */
+.result-box {
+  border: 1px solid #666;
+  padding: 15px;
+  margin: 20px auto;
+  max-width: 700px;
+  text-align: left;
+}
+
+#diff {
+  white-space: pre-wrap;
+  margin-top: 10px;
+}
+
+/* 不一致文字の強調表示 */
+.diff-wrong {
+  background: var(--diff-bg);
+  color: var(--diff-text);
+}
+
+/* ============================
+   注意書き
+============================ */
+.warning-box {
+  border: 1px solid red;
+  padding: 12px;
+  display: inline-block;
+  margin-top: 15px;
+}
+
+/* ============================
+   管理者ログイン
+============================ */
+.admin-box {
+  margin-top: 25px;
+  text-align: left;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.admin-content {
+  padding: 10px;
+}
+
+input[type="password"] {
+  padding: 8px;
+  font-size: 16px;
+}
+
+/* コピーライト */
+.copy {
+  margin-top: 40px;
+  opacity: 0.7;
+}
