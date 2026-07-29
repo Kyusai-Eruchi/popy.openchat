@@ -1,4 +1,4 @@
-const MAINTENANCE_MODE = false; // ← 本番時は false
+const MAINTENANCE_MODE = true; // ← 本番時は false
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -10,8 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
   if (MAINTENANCE_MODE && !isDev) {
     document.body.innerHTML = `
       <div style="text-align:center;margin-top:100px;font-size:24px;">
-        <h1>サービス終了のお知らせ</h1>
-        <p></p>
+        <h1>ただいまメンテナンス中です。</h1>
+        <p>メンテナンス終了までもうしばらくお待ちくださいませ。</p>
       </div>`;
     return;
   }
