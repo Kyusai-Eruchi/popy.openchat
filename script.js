@@ -267,10 +267,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         const text1 =
-           baseAnnouncement.trim();
+           normalizeText(baseAnnouncement);
 
-        const text2 =
-            compareText.value.trim();
+      　const text2 =
+           normalizeText(compareText.value);
 
        diffView.innerHTML = "";
 
@@ -350,7 +350,12 @@ document.addEventListener("DOMContentLoaded", () => {
     /* ==========================================
        Similarity
     ========================================== */
+    function normalizeText(text){
 
+     return text
+         .replace(/\s+/g,"")
+         .trim();
+    }
 
     function calculateSimilarity(
         text1,
