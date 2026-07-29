@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
    const baseAnnouncement = `
       はい！僕たち私たちはぽぴぃ様が純粋であることをここに誓います✨️可愛くて優しいぽぴぃ大好き！
 
-      ぽぴぃRIP
+ぽぴぃRIP
    `;
 
     /* ==========================================
