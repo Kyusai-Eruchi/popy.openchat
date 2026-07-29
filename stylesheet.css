@@ -674,6 +674,88 @@ body.dark footer{
 }
 
 /* ==========================================
+   Dark Mode Diff
+========================================== */
+
+body.dark .diff-container{
+    border-color:#444;
+}
+
+
+body.dark .diff-toolbar{
+    background:#252a34;
+    color:#ffffff;
+}
+
+
+body.dark .diff-view{
+    background:#1e2228;
+}
+
+
+body.dark .diff-line{
+    color:#ffffff;
+    border-bottom:1px solid #3a3f47;
+}
+
+
+/* 通常行 */
+
+body.dark .diff-normal{
+
+    background:#1e2228;
+
+}
+
+
+/* 追加 */
+
+body.dark .diff-add{
+
+    background:#183b25;
+    color:#d7ffe1;
+
+}
+
+
+/* 削除 */
+
+body.dark .diff-remove{
+
+    background:#451f25;
+    color:#ffd7dc;
+
+}
+
+
+/* 変更 */
+
+body.dark .diff-change{
+
+    background:#4a4118;
+    color:#fff3b0;
+
+}
+
+
+/* 行番号 */
+
+body.dark .line-number{
+
+    color:#aeb4bd;
+
+}
+
+
+/* 本文 */
+
+body.dark .line-content{
+
+    color:#ffffff;
+
+}
+
+/* ==========================================
    Responsive
 ========================================== */
 
