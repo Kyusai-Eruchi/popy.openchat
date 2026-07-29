@@ -65,7 +65,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const progressBar =
         document.getElementById("progressBar");
 
-
+   　let diffResult = {
+      　added:0,
+      　removed:0,
+      　changed:0
+   　};
 
     /* ==========================================
        Toast
@@ -297,7 +301,29 @@ document.addEventListener("DOMContentLoaded", () => {
         const text2 =
             compareText.value.trim();
 
+       diffView.innerHTML = "";
 
+      diffSummary.textContent =
+          "変更はありません";
+
+
+      matchRate.textContent =
+          "0%";
+
+
+      progressBar.style.width =
+          "0%";
+
+
+      diffResult = {
+
+          added:0,
+
+          removed:0,
+
+          changed:0
+
+      };
 
         if(
             text1 === "" ||
@@ -580,10 +606,14 @@ document.addEventListener("DOMContentLoaded", () => {
     diffView.innerHTML =
         html;
 
+    diffResult.added = added;
 
+    diffResult.removed = removed;
+
+    diffResult.changed = changed;
 
     diffSummary.textContent =
-        `追加 ${added}件 / 削除 ${removed}件 / 変更 ${changed}件`;
+       `追加 ${added}件 / 削除 ${removed}件 / 変更 ${changed}件`;
 
 
 
@@ -635,5 +665,68 @@ function escapeHTML(text){
         compareAnnouncement
     );
 
+/* ==========================================
+   Copy Result
+========================================== */
 
+
+const copyResult =
+    document.getElementById("copyResult");
+
+
+
+copyResult.addEventListener(
+    "click",
+    async()=>{
+
+
+        const resultText =
+
+`アナウンス照合結果
+
+一致率：
+${matchRate.textContent}
+
+追加：
+${diffResult.added}件
+
+削除：
+${diffResult.removed}件
+
+変更：
+${diffResult.changed}件
+
+
+----------------
+
+${diffView.innerText}
+`;
+
+
+
+        try{
+
+            await navigator.clipboard.writeText(
+                resultText
+            );
+
+
+            showToast(
+                "結果をコピーしました"
+            );
+
+        }
+
+        catch(error){
+
+            showToast(
+                "コピーできませんでした"
+            );
+
+        }
+
+
+    }
+  );
+   
 });
