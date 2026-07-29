@@ -324,15 +324,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
             const score =
-                calculateSimilarity(
-                    text1,
-                    text2
-                );
+               calculateSimilarity(
+                  text1,
+                  text2
+            );
 
 
             displayScore(score);
 
 
+            generateDiff(
+                text1,
+                text2
+            );
 
             loading.classList.add(
                 "hidden"
