@@ -440,10 +440,191 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
 
+    }
+
+   /* ==========================================
+   Diff Viewer
+   ========================================== */
+
+   const diffView =
+      document.getElementById("diffView");
+
+   const diffSummary =
+      document.getElementById("diffSummary");
+
+   function generateDiff(text1,text2){
+
+   const lines1 =
+      text1.split("\n");
+
+    const lines2 =
+        text2.split("\n");
+
+    let html = "";
+
+    let added = 0;
+    let removed = 0;
+    let changed = 0;
+
+    const max =
+        Math.max(
+            lines1.length,
+            lines2.length
+        );
+
+    for(
+        let i = 0;
+        i < max;
+        i++
+    ){
+       
+        const oldLine =
+            lines1[i];
+
+
+        const newLine =
+            lines2[i];
+
+
+
+        // 両方存在して同じ
+
+        if(
+            oldLine &&
+            newLine &&
+            oldLine === newLine
+        ){
+
+            html += createDiffLine(
+                i + 1,
+                oldLine,
+                "normal"
+            );
+
+        }
+
+
+
+        // 変更
+
+        else if(
+            oldLine &&
+            newLine
+        ){
+
+            changed++;
+
+
+            html += createDiffLine(
+                i + 1,
+                "- " + oldLine,
+                "remove"
+            );
+
+
+            html += createDiffLine(
+                i + 1,
+                "+ " + newLine,
+                "add"
+            );
+
+        }
+
+
+
+        // 削除
+
+        else if(oldLine){
+
+
+            removed++;
+
+
+            html += createDiffLine(
+                i + 1,
+                "- " + oldLine,
+                "remove"
+            );
+
+
+        }
+
+
+
+        // 追加
+
+        else if(newLine){
+
+
+            added++;
+
+
+            html += createDiffLine(
+                i + 1,
+                "+ " + newLine,
+                "add"
+            );
+
+
+        }
+
 
     }
 
 
+
+    diffView.innerHTML =
+        html;
+
+
+
+    diffSummary.textContent =
+        `追加 ${added}件 / 削除 ${removed}件 / 変更 ${changed}件`;
+
+
+
+}
+
+
+
+function createDiffLine(
+    number,
+    text,
+    type
+){
+
+
+    return `
+
+    <div class="diff-line diff-${type}">
+
+        <span class="line-number">
+            ${number}
+        </span>
+
+
+        <span class="line-content">
+            ${escapeHTML(text)}
+        </span>
+
+
+    </div>
+
+    `;
+
+
+}
+
+
+
+function escapeHTML(text){
+
+    return text
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;");
+
+}
 
     compareBtn.addEventListener(
         "click",
