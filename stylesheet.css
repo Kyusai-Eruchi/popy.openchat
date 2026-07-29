@@ -844,3 +844,38 @@ body.dark .line-content{
     }
 
 }
+
+/* ==========================================
+   Fixed Announcement View
+========================================== */
+
+.announcement-view{
+
+    min-height:360px;
+
+    background:#f8f9fc;
+
+    border:2px solid #dbe3ef;
+
+    border-radius:12px;
+
+    padding:18px;
+
+    white-space:pre-wrap;
+
+    overflow:auto;
+
+    font-size:15px;
+
+}
+
+
+body.dark .announcement-view{
+
+    background:#1f232b;
+
+    color:white;
+
+    border-color:#444;
+
+}
