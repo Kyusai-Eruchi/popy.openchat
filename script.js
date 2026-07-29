@@ -25,24 +25,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const compareText =
         document.getElementById("compareText");
-
-
-    const leftCount =
-        document.getElementById("leftCount");
+   
 
     const rightCount =
         document.getElementById("rightCount");
 
 
-    const pasteLeft =
-        document.getElementById("pasteLeft");
-
     const pasteRight =
         document.getElementById("pasteRight");
-
-
-    const clearLeft =
-        document.getElementById("clearLeft");
 
     const clearRight =
         document.getElementById("clearRight");
@@ -105,23 +95,12 @@ document.addEventListener("DOMContentLoaded", () => {
        Character Counter
     ========================================== */
 
-    function updateCounter(){
+   function updateCounter(){
 
-        leftCount.textContent =
-            `${baseAnnouncement.length}文字`;
+    rightCount.textContent =
+        `${compareText.value.length}文字`;
 
-
-        rightCount.textContent =
-            `${compareText.value.length}文字`;
-
-    }
-
-
-    originalText.addEventListener(
-        "input",
-        updateCounter
-    );
-
+   }
 
     compareText.addEventListener(
         "input",
@@ -166,14 +145,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-
-
-    pasteLeft.addEventListener(
-        "click",
-        () => pasteText(originalText)
-    );
-
-
     pasteRight.addEventListener(
         "click",
         () => pasteText(compareText)
@@ -197,14 +168,6 @@ document.addEventListener("DOMContentLoaded", () => {
         showToast("クリアしました");
 
     }
-
-
-
-    clearLeft.addEventListener(
-        "click",
-        () => clearText(originalText)
-    );
-
 
     clearRight.addEventListener(
         "click",
@@ -304,8 +267,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         const text1 =
-            originalText.trim();
-
+           baseAnnouncement.trim();
 
         const text2 =
             compareText.value.trim();
