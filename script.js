@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
        Elements
     ========================================== */
 
+   
     const originalText =
         document.getElementById("originalText");
 
@@ -76,6 +77,9 @@ document.addEventListener("DOMContentLoaded", () => {
       　changed:0
    　};
 
+    originalText.textContent =
+    baseAnnouncement.trim();
+
     /* ==========================================
        Toast
     ========================================== */
@@ -104,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function updateCounter(){
 
         leftCount.textContent =
-            `${originalText.value.length}文字`;
+            `${baseAnnouncement.length}文字`;
 
 
         rightCount.textContent =
@@ -300,7 +304,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         const text1 =
-            originalText.value.trim();
+            originalText.trim();
 
 
         const text2 =
