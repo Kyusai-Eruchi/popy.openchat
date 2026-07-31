@@ -15,6 +15,36 @@ document.addEventListener("DOMContentLoaded", () => {
 ぽぴぃRIP
    `;
 
+   /* ==========================================
+      Maintenance Mode
+   ========================================== */
+
+   const maintenanceMode = true;
+
+   if (maintenanceMode) {
+
+    document.body.innerHTML = `
+        <div class="maintenance-screen">
+
+            <h1>🔧 メンテナンス中</h1>
+
+            <p>
+                現在、アナウンス照合ツールは
+                メンテナンスを実施しています。
+            </p>
+
+            <p>
+                ご不便をお掛けしますが、
+                復旧までしばらくお待ちください。
+            </p>
+
+        </div>
+    `;
+
+    return;
+
+}
+
     /* ==========================================
        Elements
     ========================================== */
