@@ -878,3 +878,67 @@ body.dark .announcement-view{
     border-color:#444;
 
 }
+
+/* ==========================================
+   Maintenance
+========================================== */
+
+.maintenance-screen{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    min-height:100vh;
+
+    padding:30px;
+
+    background:#f4f6fb;
+
+}
+
+.maintenance-screen h1{
+
+    font-size:48px;
+
+    margin-bottom:20px;
+
+    color:#2a5298;
+
+}
+
+.maintenance-screen p{
+
+    font-size:18px;
+
+    color:#555;
+
+    margin:8px 0;
+
+    max-width:600px;
+
+}
+
+body.dark .maintenance-screen{
+
+    background:#1c1f26;
+
+}
+
+body.dark .maintenance-screen h1{
+
+    color:#6ea8ff;
+
+}
+
+body.dark .maintenance-screen p{
+
+    color:#ddd;
+
+}
