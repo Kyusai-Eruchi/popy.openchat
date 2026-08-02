@@ -470,6 +470,42 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
    /* ==========================================
+   LCS (Longest Common Subsequence)
+========================================== */
+
+function getLCS(a, b){
+
+    const dp = Array.from(
+        { length: a.length + 1 },
+        () => Array(b.length + 1).fill(0)
+    );
+
+    for(let i = 1; i <= a.length; i++){
+
+        for(let j = 1; j <= b.length; j++){
+
+            if(a[i - 1] === b[j - 1]){
+
+                dp[i][j] = dp[i - 1][j - 1] + 1;
+
+            }else{
+
+                dp[i][j] = Math.max(
+                    dp[i - 1][j],
+                    dp[i][j - 1]
+                );
+
+            }
+
+        }
+
+    }
+
+    return dp;
+
+}
+   
+   /* ==========================================
    Diff Viewer
    ========================================== */
 
@@ -479,145 +515,8 @@ document.addEventListener("DOMContentLoaded", () => {
    const diffSummary =
       document.getElementById("diffSummary");
 
-   function generateDiff(text1,text2){
 
-   const lines1 =
-      text1.split("\n");
-
-    const lines2 =
-        text2.split("\n");
-
-    let html = "";
-
-    let added = 0;
-    let removed = 0;
-    let changed = 0;
-
-    const max =
-        Math.max(
-            lines1.length,
-            lines2.length
-        );
-
-    for(
-        let i = 0;
-        i < max;
-        i++
-    ){
-       
-        const oldLine =
-            lines1[i];
-
-
-        const newLine =
-            lines2[i];
-
-
-
-        // 両方存在して同じ
-
-        if(
-            oldLine &&
-            newLine &&
-            oldLine === newLine
-        ){
-
-            html += createDiffLine(
-                i + 1,
-                oldLine,
-                "normal"
-            );
-
-        }
-
-
-
-        // 変更
-
-        else if(
-            oldLine &&
-            newLine
-        ){
-
-            changed++;
-
-
-            html += createDiffLine(
-                i + 1,
-                "- " + oldLine,
-                "remove"
-            );
-
-
-            html += createDiffLine(
-                i + 1,
-                "+ " + newLine,
-                "add"
-            );
-
-        }
-
-
-
-        // 削除
-
-        else if(oldLine){
-
-
-            removed++;
-
-
-            html += createDiffLine(
-                i + 1,
-                "- " + oldLine,
-                "remove"
-            );
-
-
-        }
-
-
-
-        // 追加
-
-        else if(newLine){
-
-
-            added++;
-
-
-            html += createDiffLine(
-                i + 1,
-                "+ " + newLine,
-                "add"
-            );
-
-
-        }
-
-
-    }
-
-
-
-    diffView.innerHTML =
-        html;
-
-    diffResult.added = added;
-
-    diffResult.removed = removed;
-
-    diffResult.changed = changed;
-
-    diffSummary.textContent =
-       `追加 ${added}件 / 削除 ${removed}件 / 変更 ${changed}件`;
-
-
-
-}
-
-
-
+   
 function createDiffLine(
     number,
     text,
