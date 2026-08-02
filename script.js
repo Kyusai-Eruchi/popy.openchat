@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
       Maintenance Mode
    ========================================== */
 
-   const maintenanceMode = false;
+   const maintenanceMode = true;
 
    if (maintenanceMode) {
 
