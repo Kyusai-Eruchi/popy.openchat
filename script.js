@@ -294,13 +294,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function compareAnnouncement(){
 
-
         const text1 =
-           normalizeText(baseAnnouncement);
+          baseAnnouncement.trim();
 
       　const text2 =
-           normalizeText(compareText.value);
-
+          compareText.value.trim();
+       
        diffView.innerHTML = "";
 
       diffSummary.textContent =
@@ -379,13 +378,6 @@ document.addEventListener("DOMContentLoaded", () => {
     /* ==========================================
        Similarity
     ========================================== */
-    function normalizeText(text){
-
-     return text
-         .replace(/\s+/g,"")
-         .trim();
-    }
-
     function calculateSimilarity(
         text1,
         text2
